@@ -1,5 +1,5 @@
 import './App.css';
-import {useState,useRef} from 'react';
+import {useState, useRef} from 'react';
 
 import Header from './component/Header';
 import TodoEditor from "./component/TodoEditor";
@@ -9,16 +9,17 @@ const mockTodo = [
   {
     id:0,
     isDone:false,
-    content:'리액트 공부하기',
+    content:'react',
     todoDate: new Date()
   },
   {
     id:1,
     isDone:false,
-    content:'포트폴리오 작성하기',
+    content:'html',
     todoDate: new Date()
-  },
+  }
 ]
+
 
 
 function App() {  
@@ -34,6 +35,7 @@ function App() {
     };
     setTodo([newItem,...todo]);
     idRef.current+=1;
+
   }
 
   const onUpdate = (targetId) => {
