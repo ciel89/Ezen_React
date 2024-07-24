@@ -1,46 +1,61 @@
-import {useState} from 'react';
 
 import TodoItem from "./TodoItem";
+import {useState, useMemo} from 'react';
 
-function TodoList({todo, onUpdate, onDelete}){
+
+function TodoList({todo,onUpdate,onDelete}){
     const [search,setSearch] = useState('');
     const onChangeSearch = (e) =>{
-        setSearch(e.target.value);
-    }
+        setSearch(e.target.value );
+    };
     const getSearchResult = ()=>{
-       return search === '' ? todo 
-            : todo.filter( (it) => it.content.toLowerCase().includes(search.toLowerCase()));
-    }
+        return search ==='' ? todo 
+        : todo.filter((it) =>
+            it.content.toLowerCase().includes(search.toLowerCase()));
+    };
 
-    const checkTodo = () => {
-        const totalCount = todo.length;
-        const doneCount = todo.filter( (it)=> it.isDone).length
-        const notDoneCount = totalCount - doneCount
-        return {totalCount, doneCount,notDoneCount };
-    }
+    //함수 추가 및 수정
+    const checkTodo = useMemo(() => {
+      console.log('분석함수 호출')
+      const totalCount = todo.length;
+      const doneCount = todo.filter((it) => it.isDone).length;
+      const notDoneCount = totalCount - doneCount;
+      return {
+        totalCount,
+        doneCount,
+        notDoneCount,
+      };
+    }, [todo]);
 
-    const {totalCount, doneCount,notDoneCount } = checkTodo()
+
+    const {totalCount, doneCount, notDoneCount} = checkTodo;
 
     return(
         <div>
             <h4>Todo List 🔍</h4>
-            <input value={search}
-                  onChange={onChangeSearch}/>
+
+            <div>
+              <p>총개수 : {totalCount} </p>
+              <p>완료된 할 일 : {doneCount}</p>
+              <p>미완료 할 일 : {notDoneCount}</p>
+            </div>
+
+            <input
+                value={search}
+                onChange={onChangeSearch}
+                className="searchbar"
+                placeholder="검색어를 입력하세요"
+            />
         <div className="list_wrapper">
-        {getSearchResult().map( (it) =>(
-          <TodoItem 
+        {getSearchResult().map((it) => (
+          <TodoItem
             key={it.id}
             {...it}
             onUpdate={onUpdate}
-            onDelete={onDelete}/>
+            onDelete={onDelete}
+          />
         ))}
-          </div>
-          <div>
-              <p>총 일정 : {totalCount}</p>
-              <p>완료 일정 : {doneCount}</p>
-              <p>미완료 일정 : {notDoneCount}</p>
-
-          </div>
+      </div>
       </div>
 
     );

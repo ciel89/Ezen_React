@@ -1,5 +1,7 @@
+import React from "react";
 
 function Header(){
+    console.log('헤더콤포넌트')
     return(
         <div>
             <h3>오늘은 📆</h3>
@@ -8,4 +10,4 @@ function Header(){
     );
 }
 
-export default Header;
+export default React.memo(Header);

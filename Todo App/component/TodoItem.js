@@ -1,15 +1,17 @@
-
+import React from "react";
 function TodoItem({id, isDone, content, todoDate, onUpdate, onDelete}){
+
+
     const onChangeCheckbox = () => {
         onUpdate(id);
       };
       const onClickDelete = () => {
-        onDelete(id)
+        onDelete(id);
       };
     
     return(
         <div>
-            <input type="checkbox" onChange={onChangeCheckbox} checked={isDone} />
+            <input onChange={onChangeCheckbox} checked={isDone} type="checkbox" />
             <span>{content}</span>
             <span>{new Date(todoDate).toLocaleDateString()}</span>
             <button onClick={onClickDelete}>삭제</button>
@@ -17,4 +19,4 @@ function TodoItem({id, isDone, content, todoDate, onUpdate, onDelete}){
     );
 }
 
-export default TodoItem;
+export default React.memo(TodoItem);
