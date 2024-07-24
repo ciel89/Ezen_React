@@ -1,20 +1,17 @@
-import {useState,useRef} from 'react';
+import {useState, useRef} from 'react';
 
-const TodoEditor = ({ onCreate }) => {
+const TodoEditor = ({onCreate}) => {
     const [content, setContent] = useState("");
-    const inputRef = useRef();
+    const inputRef =  useRef();
   
     const onChangeContent = (e) => {
-      setContent(e.target.value);
+        setContent(e.target.value)
     };
     
     const onSubmit = () => {
-      if (!content) {
-        inputRef.current.focus();
-        return;
-      }
+      if(!content) {inputRef.current.focus()}
       onCreate(content);
-      setContent("");
+      setContent('');
     };
 
   
@@ -22,12 +19,9 @@ const TodoEditor = ({ onCreate }) => {
       <div className="TodoEditor">
         <h3>새로운 Todo List 작성하기 ✏️ </h3>
         <div className="editor_wrapper">
-          <input
-            ref={inputRef}
-            value={content}
-            onChange={onChangeContent}
-            placeholder="새로운 Todo..."
-          />
+          <input ref={inputRef}
+                 value={content}
+                 onChange={onChangeContent}/>
           <button onClick={onSubmit}>추가</button>
         </div>
       </div>

@@ -4,14 +4,12 @@ function TodoItem({id, isDone, content, todoDate, onUpdate, onDelete}){
         onUpdate(id);
       };
       const onClickDelete = () => {
-        onDelete(id);
+        onDelete(id)
       };
     
-
-
     return(
         <div>
-            <input onChange={onChangeCheckbox} checked={isDone} type="checkbox" />
+            <input type="checkbox" onChange={onChangeCheckbox} checked={isDone} />
             <span>{content}</span>
             <span>{new Date(todoDate).toLocaleDateString()}</span>
             <button onClick={onClickDelete}>삭제</button>
