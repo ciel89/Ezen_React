@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Map with Tooltips</title>
+    <style>
+        .tooltip {
+            position: absolute;
+            background-color: #333;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            display: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+<img src="example.jpg" usemap="#image-map" alt="Example Image">
+
+<map name="image-map">
+    <area shape="rect" coords="34,44,270,350" alt="First Area" data-tooltip="First Area" href="#">
+    <area shape="circle" coords="500,200,100" alt="Second Area" data-tooltip="Second Area" href="#">
+</map>
+
+<div id="tooltip" class="tooltip"></div>
+
+<script>
+    const areas = document.querySelectorAll('area');
+    const tooltip = document.getElementById('tooltip');
+
+    areas.forEach(area => {
+        area.addEventListener('mouseover', event => {
+            const tooltipText = event.target.getAttribute('data-tooltip');
+            tooltip.textContent = tooltipText;
+            tooltip.style.display = 'block';
+            tooltip.style.left = `${event.pageX + 10}px`;
+            tooltip.style.top = `${event.pageY + 10}px`;
+        });
+
+        area.addEventListener('mousemove', event => {
+            tooltip.style.left = `${event.pageX + 10}px`;
+            tooltip.style.top = `${event.pageY + 10}px`;
+        });
+
+        area.addEventListener('mouseout', () => {
+            tooltip.style.display = 'none';
+        });
+    });
+</script>
+
+</body>
+</html>
