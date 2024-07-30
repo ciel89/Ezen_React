@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>세부 정보 보기</title>
+  <style>
+      /* 세부 정보를 숨기는 스타일 */
+      #detailInfo {
+          display: none;
+      }
+  </style>
+</head>
+
+<body>
+  <img src="images/오리지널.png">
+  <button id="detailButton">세부 정보 보기</button>
+
+  <!-- 세부 정보를 표시할 요소 -->
+  <div id="detailInfo">
+      세부 정보가 여기에 나타납니다.
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    // 버튼 요소를 가져옵니다.
+      var button = document.getElementById("detailButton");
+
+      // 세부 정보를 보여줄 요소를 가져옵니다.
+      var detailInfo = document.getElementById("detailInfo");
+
+      // 버튼에 클릭 이벤트를 추가합니다.
+      button.addEventListener("click", function() {
+          // 세부 정보 요소가 보이는지 확인하고, 상태에 따라 보이도록 하거나 감추도록 합니다.
+          if (detailInfo.style.display === "none" || detailInfo.style.display === "") {
+              detailInfo.style.display = "block"; // 보이도록 설정
+          } else {
+              detailInfo.style.display = "none"; // 감추도록 설정
+          }
+      });
+  });
+  </script>
+
+</body>
+</html>

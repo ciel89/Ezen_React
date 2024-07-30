@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상세설명 나오기</title>
+    <style>
+        #pet {
+          padding: 15px;
+          position: relative;
+        }
+        button {
+          border: 1px solid #ccc;
+          padding: 5px;
+          background-color: rgba(255,255,255,0.7);
+          cursor: pointer;
+        }
+   
+        .over {
+          position: absolute;
+          left: 30px;
+          bottom: 30px;
+        }
+   
+        .detail {
+          width: 420px;
+          text-align: justify;
+          line-height: 1.8;
+          display: none;
+        }
+         </style>
+         <script>     
+            // id 이용
+            // 윈도우가 다 로드되면(body끝까지 다 읽으면) 수행하는 것
+            //window 함수는 때가 되면 수행하기 때문에 익명 함수 이용
+         
+              window.onload = function() {  // function() => 익명함수
+                let desc = document.querySelector("#desc");   // div
+                let op = document.querySelector("#op");   // button 상세설명보기
+                let sp = document.querySelector("#sheperd"); // image
+              }
+         
+              function showDetail() { //선언적 함수, 호출해서 수행
+                desc.style.display = "block";
+                op.style.display = "none";
+              }
+         
+              function hideDtail() { //선언적 함수, 호출해서 수행
+                desc.style.display = "none";
+                op.style.display = "block";
+              }   
+              
+            </script>
+</head>
+<body>
+    <div id="pet">
+        <img src="dog.jpg" alt="shepherd" id="shepherd">
+        <button class="over" id="op" onclick="showDetail();">상세설명보기</button>
+        <div id="desc" class="detail">
+          <h3>shepherd</h3>
+          <p>세계에서 가장 많은 곳에서 키우는 개.
+            목양견, 보초견, 경찰견(탐지 및 수색), 맹인을 위한 안내견, 애완견으로 길러지고 있다.
+          </p>
+          <button class="close" onclick="hideDtail();">상세설명닫기</button>
+        </div>
+      </div>
+      <p>추가내용확인하기</p>
+</body>
+</html>

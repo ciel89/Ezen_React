@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>DOM 요소 내용 변경하기</title>
+	<meta charset="UTF-8">
+	<script>
+		window.onload = function() {
+		bt = document.getElementById("bt");
+		bt.addEventListener('click',changeImage);
+
+		var cnt = 1;
+		function changeImage(){
+			cnt++;
+			if(cnt%2==1){
+				document.getElementById("image").src = "images/오리지널.png";
+				}else{
+				document.getElementById("image").src = "images/콜드브루.png";
+				}
+		}
+	}
+	</script>	
+</head>
+<body>
+    <img id="image" src="images/오리지널.png">
+	<input type="button" value="이미지변경" id="bt">
+</body>
+</html>
+

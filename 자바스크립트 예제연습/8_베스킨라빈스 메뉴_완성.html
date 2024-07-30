@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+        a{
+            text-decoration: none;
+            color:black;
+        }
+
+        header{
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background-color: transparent; /* 초기 배경색 투명으로 설정 */
+            transition: background-color 0.3s ease; /* 배경색 전환에 대한 트랜지션 추가 */
+            z-index: 999;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+        }
+        li{
+            margin: 0px 20px;
+        }
+        div{
+            width: 400px;
+            height: 500px;
+            background-color:aquamarine;
+            display: block;
+        }
+    </style>
+    <script>
+        //앵커있는 메뉴 구성
+        window.onload = function() {
+            var menu = document.querySelector('header');
+            var logo = document.querySelector('#logo');
+
+            function link(){
+            const links = document.getElementsByTagName('a');
+            for (let i = 0; i < links.length; i++) {
+                links[i].addEventListener('mouseover', function() {
+                    this.style.color = 'white'; // 마우스 오버 시 링크 색상 변경
+                });
+                links[i].addEventListener('mouseout', function() {
+                    this.style.color = 'black'; // 마우스 아웃 시 링크 색상 초기화
+                });
+            }
+            menu.style.backgroundColor = 'pink';
+            logo.src = 'images/h_logo_white.png';      
+        }
+
+            menu.addEventListener('mouseover',link);
+
+            menu.addEventListener('mouseout' , function() {
+                menu.style.backgroundColor = 'transparent';
+                logo.src = 'images/h_logo.png';
+            });
+
+            window.addEventListener('scroll', function() {
+            var menu = document.querySelector('header');
+            var scrollPos = window.scrollY;
+
+            // 스크롤이 발생했을 때의 조건
+            if (scrollPos > 0) {
+            menu.style.backgroundColor = 'pink'; // 스크롤이 일어나면 배경색 변경
+            } else {
+            topMenu.style.backgroundColor = 'transparent'; // 스크롤이 일어나지 않으면 초기 투명색으로 변경
+            }
+        });
+
+
+        }
+
+
+    </script>
+</head>
+<body>
+        <header>
+                <img id="logo" src="images/h_logo.png" alt="h_logo">
+                <ul>
+                    <li><a href="#"><b>Menu</b></a></li>
+                    <li><a href="#"><b>BR Play</b></a></li>
+                    <li><a href="#"><b>BR Story</b></a></li>
+                    <li><a href="#"><b>Delivery/Store</b></a></li>
+                </ul>
+        </header>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+</body>
+</html>

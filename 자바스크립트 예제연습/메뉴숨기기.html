@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>스크롤시 상단 메뉴 숨기기</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+    .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333; /* 상단 메뉴 배경색 */
+  color: #fff; /* 상단 메뉴 글자색 */
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.content {
+  height: 2000px; /* 테스트를 위한 임시 높이 */
+}
+</style>
+</head>
+<body>
+<div class="menu" id="menu">
+  <ul>
+    <li><a href="#">메뉴 항목 1</a></li>
+    <li><a href="#">메뉴 항목 2</a></li>
+    <li><a href="#">메뉴 항목 3</a></li>
+  </ul>
+</div>
+
+<div class="content">
+  <!-- 여기에 컨텐츠 내용이 들어갑니다 -->
+</div>
+
+<script src="script.js"></script>
+<script>
+var menu = document.getElementById('menu');
+var lastScrollTop = 0;
+var delta = 5;
+var navbarHeight = menu.offsetHeight;
+
+window.addEventListener('scroll', function(event) {
+  var st = window.pageYOffset || document.documentElement.scrollTop;
+  
+  if (Math.abs(lastScrollTop - st) <= delta)
+    return;
+  
+  if (st > lastScrollTop && st > navbarHeight){
+    menu.style.top = "-" + navbarHeight + "px";
+  } else {
+    if (st + window.innerHeight < document.body.scrollHeight) {
+      menu.style.top = "0px";
+    }
+  }
+  
+  lastScrollTop = st;
+}, false);
+</script>
+</body>
+</html>
+
+
+
+
+

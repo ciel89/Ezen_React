@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>배경색 변경</title>
+<style>
+  body {
+    transition: background-color 0.5s ease; /* 배경색 변경을 부드럽게 만듭니다. */
+  }
+</style>
+<script>
+    window.onload = function(){
+    function change(){
+        let red = Math.floor(Math.random()*256); // 0~255까지 나오게 함
+          let green = Math.floor(Math.random()*256); // 0~255까지 나오게 함
+          let blue = Math.floor(Math.random()*256); // 0~255까지 나오게 함
+          document.body.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+
+    }
+
+  setInterval(change,5000); // 5000 밀리초 (5초)
+    }
+
+</script>
+</head>
+<body>
+
+<h1>일정 시간 후 배경색 변경</h1>
+
+
+
+</body>
+</html>

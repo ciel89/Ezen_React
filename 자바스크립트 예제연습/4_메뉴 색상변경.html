@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴 디자인</title>
+    <style>
+        ul{
+            padding: 0px;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+        li{
+            margin: 0px auto;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+          pic = document.querySelector("#menu");
+          //이벤트를 주고 싶은대로 줄 수 있음("이벤트", 호출할 함수)
+          pic.addEventListener("mouseover", change);
+          pic.addEventListener("mouseout", origin);
+        } 
+        function change() {
+            this.style.backgroundColor = '#333';
+            this.style.color = '#fff';
+        }
+   
+        function origin() {
+            this.style.backgroundColor = '#ccc';
+            this.style.color = '#000';
+        }
+      </script>
+</head>
+<body>
+    <ul id="menu">
+        <li>회원가입</li>
+        <li>로그인</li>
+        <li>제품소개</li>
+        <li>고객센터</li>
+    </ul>
+</body>
+</html>

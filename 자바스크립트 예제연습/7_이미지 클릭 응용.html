@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<script>
+    window.onload = function () {
+          on = document.querySelector("#on");
+          off = document.querySelector("#off");
+          target = document.getElementById('target');
+
+          on.addEventListener("click", onPic);
+          off.addEventListener("click", offPic);
+        } 
+        function onPic() {
+          target.src = "images/light_on.png";
+        }
+   
+        function offPic() {
+          target.src = "images/light_off.png";
+        }
+      </script>
+</script>
+<body>
+    <button id="on">전등켜기스위치</button>
+    <button id="off">전등끄기스위치</button>
+    <img id='target' src="images/light_on.png">
+</body>
+
+</html>

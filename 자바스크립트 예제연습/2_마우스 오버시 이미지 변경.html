@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지변경</title>
+    <script>
+        //전역변수 pic 생성
+        //let pic;
+        window.onload = function () {
+          pic = document.querySelector("#pic");
+          //이벤트를 주고 싶은대로 줄 수 있음("이벤트", 호출할 함수)
+          pic.addEventListener("mouseover", changePic);
+          pic.addEventListener("mouseout", originPic);
+        } 
+        function changePic() {
+          this.src = "images/콜드브루.png";
+        }   
+        function originPic() {
+          this.src = "images/오리지널.png";
+        }
+      </script>
+</head>
+<body>
+    <img src="images/오리지널.png" alt="deca" id="pic">
+</body>
+</html>

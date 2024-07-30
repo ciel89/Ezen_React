@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>setTimeout</title>
+      <meta charset="UTF-8">
+      <script>
+        function changeColor(c) {
+          document.getElementById("target").style.backgroundColor = c;
+        }
+      </script>
+    </head>
+    <body id="target">
+      <form method="post">
+          <input type="radio" name="c1" onclick="changeColor('rgb(0,0,255)')">파랑색
+          <input type="radio" name="c1" onclick="changeColor('#abc')">녹색
+      </form>
+    </body>
+    </html>

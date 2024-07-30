@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            height:100%;
+        }
+        body {
+            height:100%;
+            margin:0;
+            border:0;
+            padding:0;
+            overflow: hidden;
+        }
+        .wrap {
+            position:relative;
+            top:0;
+            width:100%;height:100%;
+            transition: 1s;
+        }
+        .container {
+            width:100%;height:100%;
+        }
+        .container:nth-child(1){background-color: green;}
+        .container:nth-child(2){background-color: orange;}
+        .container:nth-child(3){background-color: yellow;}
+        .container:nth-child(4){background-color: red;}
+    </style>
+
+</head>
+<body>
+    <div class="wrap">
+        <div class="container"></div>
+        <div class="container"></div>
+        <div class="container"></div>
+        <div class="container"></div>
+    </div>
+    <script src="ui.js"></script>
+    <script>
+        const wrap = document.getElementsByClassName('wrap')[0]; // 보일 영역
+        const container = document.getElementsByClassName('container');
+        let page = 0; // 영역 포지션 초기값
+        const lastPage = container.length - 1; // 마지막 페이지
+
+        window.addEventListener('wheel',function(e) {
+        e.preventDefault();
+        if(e.deltaY > 0){
+        page++;
+        }else if(e.deltaY < 0){
+        page--;
+        }
+        if(page < 0){
+        page=0;
+        }else if(page > lastPage){
+        page = lastPage;
+        }
+        //console.log(e.deltaY)
+        wrap.style.top = page * -100 + 'vh';
+        },{passive:false}); // 디폴트 기능 제거 - 스크롤
+    </script>
+</body>
+</html>
