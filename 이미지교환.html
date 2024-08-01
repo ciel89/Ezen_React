@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 토글</title>
+    <style>
+        #image {
+            display: none;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" id="textInput" value="클릭하여 이미지를 보세요" onclick="toggleDisplay()">
+    <img id="image" src="새.jpg" alt="이미지" onclick="toggleDisplay()">
+
+    <script>
+        function toggleDisplay() {
+            var textInput = document.getElementById("textInput");
+            var image = document.getElementById("image");
+            
+            if (textInput.style.display === "none") {
+                textInput.style.display = "block";
+                image.style.display = "none";
+            } else {
+                textInput.style.display = "none";
+                image.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
