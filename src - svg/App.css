@@ -1,0 +1,29 @@
+/* src/App.css */
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.rotating-icon {
+  width:500px;
+  animation: fillChange 5s infinite;
+}
+
+@keyframes fillChange {
+  0% {
+      fill: #3498db; /* 초기 색상 */
+  }
+  25% {
+      fill: #e74c3c;
+  }
+  50% {
+      fill: #2ecc71;
+  }
+  75% {
+      fill: #f1c40f;
+  }
+  100% {
+      fill: #9b59b6;
+  }
+}
